@@ -7,5 +7,6 @@
   "keywords": [ "dav", "webdav", "carddav", "caldav", "sync", "mobile", "contacts", "calendars" ],
   "minimum-stability": "dev",
   "require": { "php": ">=5.4.1", "sabre/dav": "dev-master" },
-  "autoload": { "psr-0": { "Office\\": "src/" } }
+  "autoload": { "psr-0": { "Office\\": "src/" } },
+  "license": "Unlicense"
 }
