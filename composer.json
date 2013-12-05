@@ -1,0 +1,11 @@
+{
+  "name": "Office",
+  "type": "project",
+  "description": "Simple CardDAV and CalDAV server to synchronize contacts and calendars between different devices.",
+  "version": "0.0.1",
+  "authors": [ { "name": "Jan Pieper", "email": "kontakt@jan-pieper.info" } ],
+  "keywords": [ "dav", "webdav", "carddav", "caldav", "sync", "mobile", "contacts", "calendars" ],
+  "minimum-stability": "dev",
+  "require": { "php": ">=5.4.1", "sabre/dav": "dev-master" },
+  "autoload": { "psr-0": { "Office\\": "src/" } }
+}
