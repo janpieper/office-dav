@@ -52,7 +52,7 @@ class PDO extends AbstractBackend implements SyncSupport {
    * @return integer
    */
   public function createAddressBook($principalUri, $uri, array $properties) {
-    $this->addChange($addressBookiId, 1);
+    //$this->addChange($addressBookiId, 1);
     throw new \Exception(__METHOD__ . ': not implemted!');
   }
 
