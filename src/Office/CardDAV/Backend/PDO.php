@@ -53,7 +53,7 @@ class PDO extends AbstractBackend implements SyncSupport {
    */
   public function createAddressBook($principalUri, $uri, array $properties) {
     //$this->addChange($addressBookiId, 1);
-    throw new \Exception(__METHOD__ . ': not implemted!');
+    throw new \Exception(__METHOD__ . ': not implemented!');
   }
 
   /**
@@ -63,7 +63,7 @@ class PDO extends AbstractBackend implements SyncSupport {
    */
   public function updateAddressBook($addressBookId, array $mutations) {
     $this->addChange($addressBookiId, 2);
-    throw new \Exception(__METHOD__ . ': not implemted!');
+    throw new \Exception(__METHOD__ . ': not implemented!');
   }
 
   /**
@@ -71,7 +71,7 @@ class PDO extends AbstractBackend implements SyncSupport {
    */
   public function deleteAddressBook($addressBookId) {
     $this->addChange($addressBookiId, 3);
-    throw new \Exception(__METHOD__ . ': not implemted!');
+    throw new \Exception(__METHOD__ . ': not implemented!');
   }
 
   /**
