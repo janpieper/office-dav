@@ -53,6 +53,65 @@ CREATE TABLE `addressbooks` (
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
+-- Table structure for table `calendar_changes`
+--
+
+DROP TABLE IF EXISTS `calendar_changes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `calendar_changes` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `calendar_id` int(10) unsigned NOT NULL,
+  `uri` varchar(255) COLLATE utf8_bin NOT NULL,
+  `operation` int(10) unsigned NOT NULL,
+  `token` int(10) unsigned NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `calendar_objects`
+--
+
+DROP TABLE IF EXISTS `calendar_objects`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `calendar_objects` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `calendar_id` int(10) unsigned NOT NULL,
+  `principal_uri` varchar(255) COLLATE utf8_bin NOT NULL,
+  `uri` varchar(255) COLLATE utf8_bin NOT NULL,
+  `component` varchar(255) COLLATE utf8_bin NOT NULL,
+  `data` text COLLATE utf8_bin NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `calendar_id` (`calendar_id`,`uri`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Table structure for table `calendars`
+--
+
+DROP TABLE IF EXISTS `calendars`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `calendars` (
+  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) COLLATE utf8_bin NOT NULL,
+  `description` varchar(255) COLLATE utf8_bin NOT NULL,
+  `uri` varchar(255) COLLATE utf8_bin NOT NULL,
+  `principal_uri` varchar(255) COLLATE utf8_bin NOT NULL,
+  `token` int(10) unsigned NOT NULL,
+  `components` varchar(255) COLLATE utf8_bin NOT NULL,
+  `transparent` int(10) unsigned NOT NULL DEFAULT '0',
+  `timezone` text COLLATE utf8_bin NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `principal_uri` (`principal_uri`,`uri`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_bin;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
 -- Table structure for table `cards`
 --
 
@@ -112,4 +171,4 @@ CREATE TABLE `users` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2013-12-05 13:01:34
+-- Dump completed on 2014-11-20  8:26:49
