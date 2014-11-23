@@ -52,10 +52,23 @@ class Plugin extends ServerPlugin {
       $modified = true;
     }
 
-    $this->server->createFile(
-      'calendars/jan/default/4cd69882-7311-11e4-9017-019011f0db9e.ics',
-      $this->generateRecurringEvent('Jan Pieper', $date)
-    );
+    // Example: 'addresbooks/jan/default/24bd27b4-7316-11e4-28d2447013e6.vcf'
+    if (!preg_match('/addressbooks\/(.+)\/(.+)\/.+\..+$/', $uri, $matches)) {
+      return true;
+    }
+
+    if (($date = $this->extractBirthday($data)) !== null) {
+      $event_uri = vsprintf('calendars/%s/%s/%s.ics', array(
+        $account, $folder, UUIDUtil::getUUID()
+      ));
+
+      $event_data = $this->generateRecurringEvent(
+        'Jan Pieper', // TODO: extract name from contact
+        $date
+      );
+
+      $this->server->createFile($event_uri, $event_data);
+    }
 
     return true;
   }
