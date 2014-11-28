@@ -147,7 +147,7 @@ class PDO extends AbstractBackend implements SyncSupport {
    */
   public function getChangesForCalendar($calendarId, $token, $level, $limit = null) {
     $stmt = $this->pdo->prepare('SELECT token FROM calendars WHERE id = ?');
-    $stmt->execute([$calendarIdId]);
+    $stmt->execute([$calendarId]);
 
     if (!$currentToken = $stmt->fetchColumn()) {
       return null;
