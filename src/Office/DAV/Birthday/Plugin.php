@@ -57,6 +57,9 @@ class Plugin extends ServerPlugin {
       return true;
     }
 
+    $account = $matches[1];
+    $folder = $matches[2];
+
     if (($date = $this->extractBirthday($data)) !== null) {
       $event_uri = vsprintf('calendars/%s/%s/%s.ics', array(
         $account, $folder, UUIDUtil::getUUID()
