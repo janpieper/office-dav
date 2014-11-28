@@ -27,7 +27,7 @@ $server->addPlugin(new Sabre\DAV\Auth\Plugin($authBackend, OFFICE_AUTH_REALM));
 $server->addPlugin(new Sabre\CardDAV\Plugin);
 $server->addPlugin(new Sabre\CalDAV\Plugin);
 $server->addPlugin(new Sabre\DAVACL\Plugin);
-$server->addPlugin(new Sabre\DAV\Sync\Plugin);
 $server->addPlugin(new Office\DAV\Birthday\Plugin);
+$server->addPlugin(new Sabre\DAV\Sync\Plugin);
 
 $server->exec();
