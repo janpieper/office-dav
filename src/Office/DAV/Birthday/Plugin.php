@@ -124,7 +124,8 @@ class Plugin extends ServerPlugin {
   }
 
   /**
-   * @
+   * @param string $person
+   * @param DateTime $birthday
    * @return string
    */
   private function generateRecurringEvent($person, \DateTime $birthday) {
